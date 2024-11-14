@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PrimeiraApi.Model;
 using PrimeiraApi.ViewModel;
 
@@ -15,6 +16,7 @@ namespace PrimeiraApi.Controllers
             _employeeRepository = employeeRepository;
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Add([FromForm]EmployeeViewModel employeeView)
         {
@@ -31,6 +33,7 @@ namespace PrimeiraApi.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPost]
         [Route("{id}/dowload")]
         public IActionResult DowloadPhoto(int id)
@@ -42,6 +45,7 @@ namespace PrimeiraApi.Controllers
             return File(dataBytes, "image/png");
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {

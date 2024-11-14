@@ -12,6 +12,8 @@ namespace PrimeiraApi.Model
         public string Photo { get; set; }
         public int Idade { get; private set; }
 
+
+        public Employee() { }
         public Employee(string nome, int idade, string Photo)
         {
             this.Nome = nome;
