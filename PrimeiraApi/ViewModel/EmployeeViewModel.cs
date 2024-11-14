@@ -6,5 +6,6 @@ namespace PrimeiraApi.ViewModel
     {
         public string Nome { get; set; }
         public int Idade { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }
