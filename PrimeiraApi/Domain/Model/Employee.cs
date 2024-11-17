@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PrimeiraApi.Model
+namespace PrimeiraApi.Domain.Model
 {
     [Table("employee")]
     public class Employee
@@ -9,15 +9,15 @@ namespace PrimeiraApi.Model
         [Key]
         public int Id { get; private set; }
         public string Nome { get; private set; }
-        public string Photo { get; set; }
+        public string? Photo { get; set; }
         public int Idade { get; private set; }
 
 
         public Employee() { }
         public Employee(string nome, int idade, string Photo)
         {
-            this.Nome = nome;
-            this.Idade = idade;
+            Nome = nome;
+            Idade = idade;
             this.Photo = Photo;
         }
 

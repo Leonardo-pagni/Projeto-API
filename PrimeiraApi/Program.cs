@@ -4,9 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using PrimeiraApi;
-using PrimeiraApi.Infraestrutura;
-using PrimeiraApi.Model;
 using System.Text;
+using PrimeiraApi.Domain.Model;
+using PrimeiraApi.Infraestrutura.Repositores;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PrimeiraApi.Services;
+using PrimeiraApi.Application.Services;
 
 namespace PrimeiraApi.Controllers
 {
@@ -12,7 +12,7 @@ namespace PrimeiraApi.Controllers
         {
             if (username == "Pagni" && password == "123")
             {
-                var token = TokenService.GenerateToken(new Model.Employee());
+                var token = TokenService.GenerateToken(new Domain.Model.Employee());
                 return Ok(token);
             }
 

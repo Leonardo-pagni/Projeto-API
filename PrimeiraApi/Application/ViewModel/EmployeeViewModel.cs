@@ -1,6 +1,6 @@
 ﻿using System.Collections.Specialized;
 
-namespace PrimeiraApi.ViewModel
+namespace PrimeiraApi.Application.ViewModel
 {
     public class EmployeeViewModel
     {
