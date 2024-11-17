@@ -10,10 +10,12 @@ namespace PrimeiraApi.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly ILogger<EmployeeController> _logger;
 
-        public EmployeeController(IEmployeeRepository employeeRepository)
+        public EmployeeController(IEmployeeRepository employeeRepository, ILogger<EmployeeController> logger)
         {
-            _employeeRepository = employeeRepository;
+            _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [Authorize]
@@ -45,11 +47,17 @@ namespace PrimeiraApi.Controllers
             return File(dataBytes, "image/png");
         }
 
-        [Authorize]
+       // [Authorize]
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(int pageNumber, int pageQuantity)
         {
-            var empoloyees = _employeeRepository.Get();
+            _logger.Log(LogLevel.Error, "Teve um Erro");
+
+            throw new Exception("Erro de teste");
+
+            var empoloyees = _employeeRepository.Get( pageNumber,  pageQuantity);
+
+            _logger.LogInformation("Teste");
 
             return Ok(empoloyees);
         }
