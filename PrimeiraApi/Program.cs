@@ -7,12 +7,15 @@ using PrimeiraApi;
 using System.Text;
 using PrimeiraApi.Domain.Model;
 using PrimeiraApi.Infraestrutura.Repositores;
+using PrimeiraApi.Application.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
+//adicionando o mapping
+builder.Services.AddAutoMapper(typeof(DomainToDTOMapping));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
